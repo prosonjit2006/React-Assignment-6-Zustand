@@ -2,12 +2,13 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useBlogStore } from "@/store/useBlogStore";
 import { Button } from "./ui/button";
 import { ArrowLeft } from "lucide-react";
 
 const SingleBlogPage = () => {
+  const router = useRouter();
   const { id } = useParams();
 
   const { selectedBlog, fetchBlogById, isLoading, isError } = useBlogStore();
@@ -35,7 +36,7 @@ const SingleBlogPage = () => {
   return (
     <section className="container mx-auto px-6 py-24">
       <div className="mx-auto max-w-4xl">
-        <Button>
+        <Button onClick={() => router.back()}>
           <ArrowLeft /> Back
         </Button>
 
