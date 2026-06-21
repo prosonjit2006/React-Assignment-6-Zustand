@@ -56,12 +56,16 @@ const SingleBlogPage = () => {
         </div>
 
         <div className="relative mb-10 h-125 w-full overflow-hidden rounded-2xl">
-          <Image
-            src={selectedBlog.image}
-            alt={selectedBlog.title}
-            fill
-            className="object-cover"
-          />
+          {selectedBlog.image && (
+            <div className="relative mb-10 h-125 w-full overflow-hidden rounded-2xl">
+              <Image
+                src={selectedBlog.image}
+                alt={selectedBlog.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
         </div>
 
         <article className="prose prose-lg dark:prose-invert max-w-none">
